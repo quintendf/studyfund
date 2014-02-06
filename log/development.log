@@ -2005,3 +2005,412 @@ Processing by Devise::RegistrationsController#new as HTML
   Rendered layouts/_navigation.html.erb (4.7ms)
   Rendered layouts/_messages.html.erb (0.5ms)
 Completed 200 OK in 114ms (Views: 107.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-02-05 22:37:24 -0500
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"test@example.com"}}
+  [1m[36m (1.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (3.7ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'test@example.com' LIMIT 1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "users" ("confirmation_sent_at", "confirmation_token", "confirmed_at", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "name", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "unconfirmed_email", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["confirmation_sent_at", nil], ["confirmation_token", nil], ["confirmed_at", nil], ["created_at", Thu, 06 Feb 2014 03:37:24 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "test@example.com"], ["encrypted_password", ""], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["unconfirmed_email", nil], ["updated_at", Thu, 06 Feb 2014 03:37:24 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 30ms
+
+NameError - uninitialized constant Gibbon::API:
+  app/models/user.rb:65:in `add_user_to_mailchimp'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:424:in `_run__2763664256220998855__create__75955303701459440__callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:405:in `__run_callback'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:385:in `_run_create_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/callbacks.rb:268:in `create'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/persistence.rb:348:in `create_or_update'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/callbacks.rb:264:in `block in create_or_update'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:414:in `_run__2763664256220998855__save__75955303701459440__callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:405:in `__run_callback'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:385:in `_run_save_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/callbacks.rb:264:in `create_or_update'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/persistence.rb:84:in `save'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/validations.rb:50:in `save'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/attribute_methods/dirty.rb:22:in `save'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:259:in `block (2 levels) in save'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:313:in `block in with_transaction_returning_status'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/database_statements.rb:192:in `transaction'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:208:in `transaction'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:311:in `with_transaction_returning_status'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:259:in `block in save'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:270:in `rollback_active_record_state!'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:258:in `save'
+  app/controllers/registrations_controller.rb:7:in `create'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/abstract_controller/base.rb:167:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:436:in `_run__154314541503511737__process_action__3405265154672666541__callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:405:in `__run_callback'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/notifications.rb:123:in `block in instrument'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/notifications.rb:123:in `instrument'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/abstract_controller/base.rb:121:in `process'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/abstract_controller/rendering.rb:45:in `process'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal.rb:203:in `dispatch'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal.rb:246:in `block in action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/routing/route_set.rb:73:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/routing/route_set.rb:36:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/routing/mapper.rb:42:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/journey-1.0.4/lib/journey/router.rb:68:in `block in call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/journey-1.0.4/lib/journey/router.rb:56:in `each'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/journey-1.0.4/lib/journey/router.rb:56:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/routing/route_set.rb:612:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/warden-1.2.1/lib/warden/manager.rb:35:in `block in call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/warden-1.2.1/lib/warden/manager.rb:34:in `catch'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/warden-1.2.1/lib/warden/manager.rb:34:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/etag.rb:23:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/conditionalget.rb:35:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/head.rb:14:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/flash.rb:242:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/session/abstract/id.rb:210:in `context'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/session/abstract/id.rb:205:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/query_cache.rb:64:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:405:in `_run__2567760781721149147__call__75955303701459440__callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:405:in `__run_callback'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/better_errors-0.8.0/lib/better_errors/middleware.rb:84:in `protected_app_call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/better_errors-0.8.0/lib/better_errors/middleware.rb:79:in `better_errors_call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/better_errors-0.8.0/lib/better_errors/middleware.rb:56:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/rack/logger.rb:32:in `call_app'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/rack/logger.rb:16:in `block in call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/tagged_logging.rb:22:in `tagged'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/rack/logger.rb:16:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/quiet_assets-1.0.2/lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/methodoverride.rb:21:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/lock.rb:15:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/static.rb:63:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/engine.rb:479:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/application.rb:223:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+  /Users/qf/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/qf/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/qf/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/users" for 127.0.0.1 at 2014-02-05 22:37:25 -0500
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"test@example.com"}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'test@example.com' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("confirmation_sent_at", "confirmation_token", "confirmed_at", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "name", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "unconfirmed_email", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["confirmation_sent_at", nil], ["confirmation_token", nil], ["confirmed_at", nil], ["created_at", Thu, 06 Feb 2014 03:37:25 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "test@example.com"], ["encrypted_password", ""], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["unconfirmed_email", nil], ["updated_at", Thu, 06 Feb 2014 03:37:25 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 6ms
+
+NameError - uninitialized constant Gibbon::API:
+  app/models/user.rb:65:in `add_user_to_mailchimp'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:424:in `_run__2763664256220998855__create__75955303701459440__callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:405:in `__run_callback'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:385:in `_run_create_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/callbacks.rb:268:in `create'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/persistence.rb:348:in `create_or_update'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/callbacks.rb:264:in `block in create_or_update'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:414:in `_run__2763664256220998855__save__75955303701459440__callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:405:in `__run_callback'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:385:in `_run_save_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/callbacks.rb:264:in `create_or_update'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/persistence.rb:84:in `save'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/validations.rb:50:in `save'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/attribute_methods/dirty.rb:22:in `save'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:259:in `block (2 levels) in save'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:313:in `block in with_transaction_returning_status'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/database_statements.rb:192:in `transaction'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:208:in `transaction'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:311:in `with_transaction_returning_status'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:259:in `block in save'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:270:in `rollback_active_record_state!'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:258:in `save'
+  app/controllers/registrations_controller.rb:7:in `create'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/abstract_controller/base.rb:167:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:436:in `_run__154314541503511737__process_action__3405265154672666541__callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:405:in `__run_callback'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/notifications.rb:123:in `block in instrument'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/notifications.rb:123:in `instrument'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/abstract_controller/base.rb:121:in `process'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/abstract_controller/rendering.rb:45:in `process'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal.rb:203:in `dispatch'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal.rb:246:in `block in action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/routing/route_set.rb:73:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/routing/route_set.rb:36:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/routing/mapper.rb:42:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/journey-1.0.4/lib/journey/router.rb:68:in `block in call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/journey-1.0.4/lib/journey/router.rb:56:in `each'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/journey-1.0.4/lib/journey/router.rb:56:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/routing/route_set.rb:612:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/warden-1.2.1/lib/warden/manager.rb:35:in `block in call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/warden-1.2.1/lib/warden/manager.rb:34:in `catch'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/warden-1.2.1/lib/warden/manager.rb:34:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/etag.rb:23:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/conditionalget.rb:35:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/head.rb:14:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/flash.rb:242:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/session/abstract/id.rb:210:in `context'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/session/abstract/id.rb:205:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/query_cache.rb:64:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:405:in `_run__2567760781721149147__call__75955303701459440__callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:405:in `__run_callback'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/better_errors-0.8.0/lib/better_errors/middleware.rb:84:in `protected_app_call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/better_errors-0.8.0/lib/better_errors/middleware.rb:79:in `better_errors_call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/better_errors-0.8.0/lib/better_errors/middleware.rb:56:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/rack/logger.rb:32:in `call_app'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/rack/logger.rb:16:in `block in call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/tagged_logging.rb:22:in `tagged'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/rack/logger.rb:16:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/quiet_assets-1.0.2/lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/methodoverride.rb:21:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/lock.rb:15:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/static.rb:63:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/engine.rb:479:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/application.rb:223:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+  /Users/qf/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/qf/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/qf/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/users" for 127.0.0.1 at 2014-02-05 22:37:25 -0500
+Processing by RegistrationsController#create as */*
+  Parameters: {"user"=>{"email"=>"test@example.com"}}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'test@example.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("confirmation_sent_at", "confirmation_token", "confirmed_at", "created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "name", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "unconfirmed_email", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17) RETURNING "id"[0m  [["confirmation_sent_at", nil], ["confirmation_token", nil], ["confirmed_at", nil], ["created_at", Thu, 06 Feb 2014 03:37:25 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "test@example.com"], ["encrypted_password", ""], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", nil], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["unconfirmed_email", nil], ["updated_at", Thu, 06 Feb 2014 03:37:25 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 6ms
+
+NameError - uninitialized constant Gibbon::API:
+  app/models/user.rb:65:in `add_user_to_mailchimp'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:424:in `_run__2763664256220998855__create__75955303701459440__callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:405:in `__run_callback'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:385:in `_run_create_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/callbacks.rb:268:in `create'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/persistence.rb:348:in `create_or_update'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/callbacks.rb:264:in `block in create_or_update'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:414:in `_run__2763664256220998855__save__75955303701459440__callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:405:in `__run_callback'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:385:in `_run_save_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/callbacks.rb:264:in `create_or_update'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/persistence.rb:84:in `save'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/validations.rb:50:in `save'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/attribute_methods/dirty.rb:22:in `save'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:259:in `block (2 levels) in save'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:313:in `block in with_transaction_returning_status'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/database_statements.rb:192:in `transaction'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:208:in `transaction'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:311:in `with_transaction_returning_status'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:259:in `block in save'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:270:in `rollback_active_record_state!'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/transactions.rb:258:in `save'
+  app/controllers/registrations_controller.rb:7:in `create'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/abstract_controller/base.rb:167:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:436:in `_run__154314541503511737__process_action__3405265154672666541__callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:405:in `__run_callback'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/notifications.rb:123:in `block in instrument'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/notifications.rb:123:in `instrument'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/abstract_controller/base.rb:121:in `process'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/abstract_controller/rendering.rb:45:in `process'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal.rb:203:in `dispatch'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_controller/metal.rb:246:in `block in action'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/routing/route_set.rb:73:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/routing/route_set.rb:36:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/routing/mapper.rb:42:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/journey-1.0.4/lib/journey/router.rb:68:in `block in call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/journey-1.0.4/lib/journey/router.rb:56:in `each'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/journey-1.0.4/lib/journey/router.rb:56:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/routing/route_set.rb:612:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/warden-1.2.1/lib/warden/manager.rb:35:in `block in call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/warden-1.2.1/lib/warden/manager.rb:34:in `catch'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/warden-1.2.1/lib/warden/manager.rb:34:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/etag.rb:23:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/conditionalget.rb:35:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/head.rb:14:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/flash.rb:242:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/session/abstract/id.rb:210:in `context'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/session/abstract/id.rb:205:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/query_cache.rb:64:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activerecord-3.2.13/lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:405:in `_run__2567760781721149147__call__75955303701459440__callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:405:in `__run_callback'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/better_errors-0.8.0/lib/better_errors/middleware.rb:84:in `protected_app_call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/better_errors-0.8.0/lib/better_errors/middleware.rb:79:in `better_errors_call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/better_errors-0.8.0/lib/better_errors/middleware.rb:56:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/rack/logger.rb:32:in `call_app'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/rack/logger.rb:16:in `block in call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/tagged_logging.rb:22:in `tagged'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/rack/logger.rb:16:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/quiet_assets-1.0.2/lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/methodoverride.rb:21:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/activesupport-3.2.13/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/lock.rb:15:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/actionpack-3.2.13/lib/action_dispatch/middleware/static.rb:63:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/engine.rb:479:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/application.rb:223:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/railties-3.2.13/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/qf/.rvm/gems/ruby-2.0.0-p353@global/gems/rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+  /Users/qf/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/qf/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/qf/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-02-05 22:37:27 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (11.5ms)
+  Rendered layouts/_navigation.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 47ms (Views: 45.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-02-05 22:37:33 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4H5uHjc2Pd5ayoX+GXIcdpTrlGD3S0OwWbqz+8ccq3g=", "user"=>{"email"=>"quintendf@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'quintendf@gmail.com' LIMIT 1[0m
+Completed 401 Unauthorized in 15ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4H5uHjc2Pd5ayoX+GXIcdpTrlGD3S0OwWbqz+8ccq3g=", "user"=>{"email"=>"quintendf@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 140ms (Views: 43.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-02-05 22:37:39 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4H5uHjc2Pd5ayoX+GXIcdpTrlGD3S0OwWbqz+8ccq3g=", "user"=>{"email"=>"quintendf@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'quintendf@gmail.com' LIMIT 1
+Completed 401 Unauthorized in 2ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4H5uHjc2Pd5ayoX+GXIcdpTrlGD3S0OwWbqz+8ccq3g=", "user"=>{"email"=>"quintendf@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.7ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 132ms (Views: 36.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-02-05 22:37:53 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4H5uHjc2Pd5ayoX+GXIcdpTrlGD3S0OwWbqz+8ccq3g=", "user"=>{"email"=>"quintendf@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'quintendf@gmail.com' LIMIT 1[0m
+Completed 401 Unauthorized in 2ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4H5uHjc2Pd5ayoX+GXIcdpTrlGD3S0OwWbqz+8ccq3g=", "user"=>{"email"=>"quintendf@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 164ms (Views: 44.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-02-05 22:37:55 -0500
+Processing by RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 113ms (Views: 112.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-05 22:37:57 -0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.erb within layouts/application (2.9ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 35.2ms | ActiveRecord: 0.0ms)
